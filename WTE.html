@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Where to eat!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        #search-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        #search-input {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+        }
+        
+        #search-button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        
+        #results {
+            margin-top: 30px;
+        }
+        
+        .restaurant {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .restaurant img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        
+        .restaurant-details {
+            flex: 1;
+        }
+        
+        .restaurant-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .restaurant-address {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Where to eat!</h1>
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Enter a location">
+        <br><br>
+        <button type="submit" id="search-button">Search</button>
+    </form>
+    
+    <div id="results"></div>
+
+    <script>
+        // Function to fetch and display restaurant results
+        function searchRestaurants(location) {
+            // Clear previous results
+            document.getElementById("results").innerHTML = "";
+
+            // Make API request to fetch restaurant data based on location
+            // Replace 'API_URL' with the actual API endpoint
+            fetch('API_URL?location=' + location)
+                .then(response => response.json())
+                .then(data => {
+                    // Process the received data and display results
+                    data.forEach(restaurant => {
+                        const resultDiv = document.createElement("div");
+                        resultDiv.className = "restaurant";
+
+                        const image = document.createElement("img");
+                        image.src = restaurant.image;
+                        resultDiv.appendChild(image);
+
+                        const detailsDiv = document.createElement("div");
+                        detailsDiv.className = "restaurant-details";
+
+                        const name = document.createElement("div");
+                        name.className = "restaurant-name";
+                        name.innerText = restaurant.name;
+                        detailsDiv.appendChild(name);
+
+                        const address = document.createElement("div");
+                        address.className = "restaurant-address";
+                        address.innerText = restaurant.address;
+                        detailsDiv.appendChild(address);
+
+                        resultDiv.appendChild(detailsDiv);
+
+                        document.getElementById("results").appendChild(resultDiv);
+                    });
+                })
+                .catch(error => {
+                    console.log("Error:", error);
+                });
+        }
+
+        // Handle form submission
+        document.getElementById("search-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const location = document.getElementById("search-input").value;
+            searchRestaurants(location);
+        });
+    </script>
+</body>
+</html>

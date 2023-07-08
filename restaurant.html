@@ -1,0 +1,76 @@
+<!--que hacemos pues? -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name of project</title>
+
+
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="nose.css" />
+    
+  </head >
+  <body>
+
+    <nav  class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid" style="padding-top: 0.5rem; padding-bottom: 2%; ">
+
+      <!--Boton para regresar (copiar en otros lados)-->
+      <button class="btn btn-primary" onclick="goBack()" style="background-color: #00ff6e;font-weight: bold;font-size: large;"><i class="gg-arrow-left"></i></button>
+
+      <script>
+        function goBack() {
+        window.history.back();
+      }
+</script>
+        <a class="navbar-brand" href="homepage.html" >Where to eat</a>
+      </div>
+    </nav>
+
+    <div> 
+        <img src="imagen.png" alt="Imagen 3" style="width: 100%;">
+    </div>
+    <div>
+      <h1>Restaurante</h1>
+    </div>
+    <div>
+        <h2 style="font-size:large;">Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis turpis fames neque, venenatis taciti elementum purus metus aliquet cubilia gravida libero.</h2>
+    </div>
+
+     <div class="divider"></div><!-- liniecita chida -->
+
+    <div>
+        <h2 style="font-size: medium;margin-left: 5%;">Menu</h2>
+        <div class="image-container2" style="padding-top: 0%;">
+        <a><img src="imagen1.png" alt="Imagen 1">
+            <img src="imagen1.png" alt="Imagen 1">
+            <img src="imagen1.png" alt="Imagen 2">
+            <img src="imagen1.png" alt="Imagen 3">
+            <img src="imagen1.png" alt="Imagen 4">
+            <img src="imagen1.png" alt="Imagen 5">
+        </a>
+    </div>
+
+    <div style="transform: translateY(-50%); display: flex;justify-content: center;">
+        <a href="menu.html"><button style="border-radius:4vh;padding: 15px;background-color: #00ff6e;" > see more</button></a>
+    </div>
+
+    <div class="divider"></div><!-- liniecita chida -->
+
+    <a href="reservation.html" style="text-decoration:none;display:flex;justify-content:center;"><button id="boton007">Reservate</button></a>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
